@@ -1,0 +1,36 @@
+.frame {
+  max-width: 1440px;
+  margin: 30px auto;
+  width: calc(100% - 60px);
+}
+@media only screen and (max-width: 480px) {
+  .frame {
+    margin: 20px auto;
+    width: calc(100% - 40px);
+  }
+}
+
+.main {
+  min-height: 100vh;
+}
+.main h1{
+  font-size: 3em;
+  font-weight: bold;
+  color: black;
+}
+
+.footer {
+  display: flex;
+  flex: 1;
+  padding: 2rem 0;
+  border-top: 1px solid #eaeaea;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
