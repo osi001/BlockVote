@@ -45,17 +45,17 @@ function App() {
   useEffect(() => {
     connectWeb3();
   }, []);
-  const requestRightToVote = async () => {
-    try {
-      const response = await contract.methods.requestRightToVote.call(ballotId);
-      console.log(response);
-      // setDrawIdInfo(drawInfo);
-    } catch (error) {
-      console.log(error);
+  // const requestRightToVote = async () => {
+  //   try {
+  //     const response = await contract.methods.requestRightToVote.call(ballotId);
+  //     console.log(response);
+  //     // setDrawIdInfo(drawInfo);
+  //   } catch (error) {
+  //     console.log(error);
 
-      toast.error("The Function Doesn't Exist");
-    }
-  };
+  //     toast.error("The Function Doesn't Exist");
+  //   }
+  // };
   const vote = async () => {
     try {
       const response = await contract.methods.vote(121212).send({ from: account[0] });
@@ -68,14 +68,17 @@ function App() {
     }
   };
 
-  const createBallot = async () => {
-    try {
-      const createBallot = await contract.methods.createBallot(12121212, 'test').send({ from: account[0] });
-    } catch (error) {
-      console.log(error);
-      toast.error("The Function Doesn't Exist");
-    }
-  };
+
+
+
+  // const createBallot = async () => {
+  //   try {
+  //     const createBallot = await contract.methods.createBallot(12121212, 'test').send({ from: account[0] });
+  //   } catch (error) {
+  //     console.log(error);
+  //     toast.error("The Function Doesn't Exist");
+  //   }
+  // };
 
   const giveRightToVote = async () => {
     debugger;
@@ -116,7 +119,7 @@ function App() {
 
   const getWinningCandidate = async () => {
     try {
-      await contract.methods.getWinningCandidate(ballotId).call();
+      await contract.methods.getWinningCandidate().call();
 
       // setDrawIdInfo(drawInfo);
     } catch (error) {
@@ -157,18 +160,18 @@ function App() {
           <section className='mt-5'>
             <div className='columns'>
               <div className='column is-one-thirds'>
-                <h2>Admin Functions</h2>
+              <h3 class="title is-3">Admin Functions</h3>
                 <br />
                 <br />
                 <button className="button is-link is-large is-light mt-3"
                   onClick={() => {
-                    createBallot();
+                    // createBallot();
                   }}>
                   Create Ballot
                 </button>{' '}
                 <br />
                 <br />
-                
+                <input class="input is-info" type="text" placeholder="Address"></input>
                 <button className="button is-link is-large is-light mt-3"
                   onClick={() => {
                     giveRightToVote();
@@ -260,16 +263,18 @@ function App() {
               <section className='mt-7'>
 
               
-              <h1>Voter Functions</h1>
+              <h3 class="title is-3">Voter Functions</h3>
 
               </section>
               
               <section className='mt-6'>
+                <input class="input is-info" type="text" placeholder="Address"></input>
+              
               <button className="button is-primary is-large is-light mt-3"
                 onClick={() => {
-                  requestRightToVote();
+                  // requestRightToVote();
                 }}>
-                Request Right to Vote
+                Delegate
               </button>{' '}
               </section>
               
