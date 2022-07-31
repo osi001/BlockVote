@@ -19,6 +19,12 @@
   color: black;
 }
 
+.main h2{
+  font-size: 2em;
+  font-weight: bold;
+  color: blue;
+}
+
 .footer {
   display: flex;
   flex: 1;

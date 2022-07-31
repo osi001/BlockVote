@@ -18,8 +18,6 @@ function App() {
   const [info, setInfo] = useState();
   const [isAdmin, setIsAdmin] = useState(true);
 
-  //SAM
-
   const web3 = new Web3(Web3.givenProvider);
 
   const connectWeb3 = async () => {
@@ -43,38 +41,6 @@ function App() {
   };
 
 
-  // const connectWalletHandler = async ()=> {
-
-  //   // check if in browser environment and metamask is installed 
-  //   if(typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
-  //     try{
-  //       // request wallet connection 
-  //       await window.ethereum.request( { method: "eth_requestAccounts"})
-        
-  //       // create web3 instance & set to state
-  //       const web3 = new Web3(window.ethereum)
-
-  //       // set web3 instance in react state 
-  //       setWeb3(web3)
-
-  //       // get list of accounts 
-  //       const accounts = await web3.eth.getAccounts()
-
-  //       // set account 1 to react state
-  //       setAddress(accounts[0]) 
-
-  //       // create local contract copy
-  //       const lc = lotteryContract(web3)
-  //       setLcContract(lc)
-
-  //     } catch (err) {
-  //           console.log(err.message)
-  //     }
-  //   } else {
-  //     // metamask is not installed 
-  //     console.log("Please install metamask")
-  //   };
-  // };
 
   useEffect(() => {
     connectWeb3();
@@ -173,6 +139,9 @@ function App() {
             <div className="navbar-brand">
               <h1>Block Vote </h1>
             </div>
+            <div className="navbar-middle">
+              
+            </div>
             <div className="navbar-end">
               <button onClick={connectWeb3} className="button is-link">Connect Wallet</button>
             </div>
@@ -188,7 +157,9 @@ function App() {
           <section className='mt-5'>
             <div className='columns'>
               <div className='column is-one-thirds'>
-                <h1>Admin Functions</h1>
+                <h2>Admin Functions</h2>
+                <br />
+                <br />
                 <button className="button is-link is-large is-light mt-3"
                   onClick={() => {
                     createBallot();
@@ -197,6 +168,7 @@ function App() {
                 </button>{' '}
                 <br />
                 <br />
+                
                 <button className="button is-link is-large is-light mt-3"
                   onClick={() => {
                     giveRightToVote();
@@ -230,6 +202,47 @@ function App() {
                 <br />
                 <br />
               </div>
+              <div className='column is-one-third'>
+                <h2> Candidates/Vote-count </h2>
+                
+                <section className="mt-5">
+                  <div className="card">
+                    <div className="card-content">
+                      <div className="content">
+                        <h2>Cand1 </h2>
+                        <h3>Vote Count: </h3>
+                        <div>
+                          
+                        </div>
+                        <ul className="ml-0">
+                          
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                
+                <section className="mt-5">
+                  <div className="card">
+                    <div className="card-content">
+                      <div className="content">
+                        <h2>Cand2 </h2>
+                        <h3>Vote Count: </h3>
+                        <div>
+                          
+                        </div>
+                        <ul className="ml-0">
+                          
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div className='column is-one-third'>
+                <h2> Voter list </h2>
+              </div>
+
             </div>
            </section>
           </div>
@@ -261,6 +274,19 @@ function App() {
               </section>
               
               <section className='mt-6'>
+              <div class="field">
+                  <label class="label">Candidates</label>
+                  <div class="control">
+                    <div class="select">
+                      <select>
+                        <option>Select dropdown</option>
+                        <option>With options</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <br />
+              
               <button className="button is-primary is-large is-light mt-3"
                 onClick={() => {
                   vote();
