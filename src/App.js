@@ -16,7 +16,7 @@ function App() {
   const [name, setName] = useState();
   const [details, setDetails] = useState();
   const [info, setInfo] = useState();
-  const [isAdmin, setIsAdmin] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   const web3 = new Web3(Web3.givenProvider);
 
@@ -167,7 +167,7 @@ function App() {
                   onClick={() => {
                     // createBallot();
                   }}>
-                  Create Ballot
+                  Open Ballot
                 </button>{' '}
                 <br />
                 <br />
@@ -180,19 +180,14 @@ function App() {
                 </button>{' '}
                 <br />
                 <br />
-                <button className="button is-link is-large is-light mt-3"
-                  onClick={() => {
-                    addCandidate();
-                  }}>
-                  Add Candidate
-                </button>{' '}
+                
                 <br />
                 <br />
                 <button className="button is-link is-large is-light mt-3"
                   onClick={() => {
-                    openBallot();
+                    // openBallot();
                   }}>
-                  Open Ballot
+                  Close Ballot
                 </button>{' '}
                 <br />
                 <br />
